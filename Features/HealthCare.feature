@@ -49,6 +49,9 @@ Scenario: 5 Amend demographic details for the enrolled member
 	   And I Click on search button
 	   And I Click on edit icon in member  search result grid under Action column
 
-
+Scenario: 6 Add benefit plan
+		Given I Login Application
+		Given I Click on Benefit plan tab
+		When I fill in New Benefit plan details
 
 

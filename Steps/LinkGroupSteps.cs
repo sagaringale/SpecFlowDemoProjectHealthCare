@@ -1,15 +1,8 @@
 ﻿using OpenQA.Selenium;
-using OpenQA.Selenium.Chrome;
+using OpenQA.Selenium.Firefox;
 using OpenQA.Selenium.Interactions;
 using System;
-using System.Threading;
 using TechTalk.SpecFlow;
-using Xunit;
-using SpecFlow.Assist.Dynamic;
-using TechTalk.SpecFlow.Assist;
-using OpenQA.Selenium.Support.UI;
-using NPOI.SS.Formula.Functions;
-using Rhino.Mocks.Constraints;
 
 namespace SpecFlowLinkGroupDemo
 {
@@ -25,15 +18,15 @@ namespace SpecFlowLinkGroupDemo
         [Given(@"I open the Health Care home page")]
         public void WhenIOpenTheHomePage()
         {
-            driver = new ChromeDriver(@"../../../Resources");
+            driver = new FirefoxDriver(@"../../../Resources");
             driver.Manage().Window.Maximize();
-      
+
             driver.Manage().Timeouts().ImplicitWait = TimeSpan.FromSeconds(50);
 
             driver.Navigate().GoToUrl("http://3.6.133.45:81/#/authentication/signin");
-            
+
         }
-        
+
         [When(@"Enter username the '([^']*)' element")]
         public void WhenEnterUsernameTheElement(string username)
         {
@@ -56,7 +49,7 @@ namespace SpecFlowLinkGroupDemo
         [Given(@"I Login Application")]
         public void GivenILoginApplication()
         {
-            driver = new ChromeDriver(@"../../../Resources");
+            driver = new FirefoxDriver(@"../../../Resources");
             driver.Manage().Window.Maximize();
             driver.Manage().Timeouts().ImplicitWait = TimeSpan.FromSeconds(60);
             driver.Navigate().GoToUrl("http://3.6.133.45:81/#/authentication/signin");
@@ -65,14 +58,14 @@ namespace SpecFlowLinkGroupDemo
             driver.FindElement(By.XPath("//span[contains(text(),'Login')]")).Click();
         }
 
-        
+
         [Given(@"I click on Search Member Tab")]
         public void GivenIClickOnSearchMemberTab()
         {
             driver.FindElement(By.XPath("//span[contains(text(),'Search Member')]")).Click();
         }
 
-        
+
 
         /*[When(@"I Enter Enrolled Account Number")]
         public void WhenIEnterTheAccountNumber()
@@ -82,7 +75,7 @@ namespace SpecFlowLinkGroupDemo
             driver.FindElement(By.XPath("//input[@formcontrolname='account']")).SendKeys("sagar");
         }*/
 
-       
+
         [Given(@"I Enter First Name which in enrolled for the given Account Number")]
         public void GivenIEnterFirstNameWhichInEnrolledForTheGivenAccountNumber()
         {
@@ -116,13 +109,13 @@ namespace SpecFlowLinkGroupDemo
         }
 
 
-      /*  [When(@"I Verify Member List Details")]
-        public void WhenIVerifyMemberListDetails()
-        {
-            string actualvalue = driver.FindElement(By.XPath("//th[contains(text(),'Id')]")).Text;
-            Assert.True(actualvalue.Contains("Id"), actualvalue + " doesn't contains 'Not ID'");
-            driver.Quit();
-        } */
+        /*  [When(@"I Verify Member List Details")]
+          public void WhenIVerifyMemberListDetails()
+          {
+              string actualvalue = driver.FindElement(By.XPath("//th[contains(text(),'Id')]")).Text;
+              Assert.True(actualvalue.Contains("Id"), actualvalue + " doesn't contains 'Not ID'");
+              driver.Quit();
+          } */
 
 
 
@@ -170,8 +163,8 @@ namespace SpecFlowLinkGroupDemo
         [Given(@"I Navigate to the member registration page")]
         public void GivenINavigateToTheMemberRegistrationPage()
         {
-            
-            
+
+
             driver.FindElement(By.XPath("/html/body/app-root/app-main-layout/app-sidebar/div/aside/div/ul/li[3]/a/span")).Click();
         }
 
@@ -202,7 +195,7 @@ namespace SpecFlowLinkGroupDemo
             //driver.Close();
         }
 
-    
+
 
         [When(@"I Fill all fields in contact details")]
         public void WhenIFillAllFieldsInContactDetails()
@@ -229,10 +222,10 @@ namespace SpecFlowLinkGroupDemo
             driver.FindElement(By.XPath("//input[@id='mat-input-8']")).SendKeys("Pune");
 
 
-            
+
 
             //driver.FindElement(By.XPath("//input[@formcontrolname='country']")).Click();
-           // driver.FindElement(By.XPath("//input[@formcontrolname='country']")).SendKeys("India");
+            // driver.FindElement(By.XPath("//input[@formcontrolname='country']")).SendKeys("India");
 
             //driver.FindElement(By.XPath("//input[@formcontrolname='state']")).Click();
             //driver.FindElement(By.XPath("//input[@formcontrolname='state']")).SendKeys("Maharashtra");
@@ -248,7 +241,7 @@ namespace SpecFlowLinkGroupDemo
 
         }
 
-        
+
 
         [When(@"I Click on register button")]
         public void WhenIClickOnRegisterButton()
@@ -277,7 +270,39 @@ namespace SpecFlowLinkGroupDemo
             driver.Quit();
         }
 
+        [Given(@"I Click on Benefit plan tab")]
+        public void GivenIClickOnBenefitPlanTab()
+        {
+            driver.FindElement(By.XPath("//span[contains(text(),'Benefit Plan')]")).Click();
+        }
 
+        [When(@"I fill in New Benefit plan details")]
+        public void WhenEnterBenefitPlanDetails()
+        {
+            driver.FindElement(By.XPath("//input[@formcontrolname='companyName']")).SendKeys("Company-1");
+
+            driver.FindElement(By.XPath("//input[@formcontrolname='planName']")).SendKeys("Plan-1");
+
+            driver.FindElement(By.XPath("//mat-select[@formcontrolname='insuranceType']")).Click();
+            driver.FindElement(By.XPath("//span[contains(text(),'Medical')]")).Click();
+
+            driver.FindElement(By.XPath("//mat-select[@formcontrolname='planDuration']")).Click();
+            driver.FindElement(By.XPath("//span[contains(text(),'15')]")).Click();
+
+            driver.FindElement(By.XPath("(//*[@class='mat-datepicker-toggle-default-icon ng-star-inserted'])[1]")).Click();
+            //           driver.FindElement(By.XPath("//span[@id='mat-calendar-button-0']")).Click();
+            //            driver.FindElement(By.XPath("//div[contains(text(),'2022')]")).Click();
+            //            driver.FindElement(By.XPath("//div[contains(text(),'AUG')]")).Click();
+            driver.FindElement(By.XPath("//div[@class='mat-calendar-body-cell-content mat-focus-indicator mat-calendar-body-today']")).Click();
+
+            //driver.FindElement(By.XPath("//input[@id='mat-radio-2-input']")).Click();
+
+            driver.FindElement(By.XPath("//textarea[@id='mat-input-12']")).SendKeys("Sample benefit Plan");
+
+            driver.FindElement(By.XPath("//span[contains(text(),'Add Benefit')]")).Click();
+
+            driver.Quit();
+        }
 
     }
 
