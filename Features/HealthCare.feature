@@ -15,8 +15,7 @@ Scenario Outline: 1 Verify Login Functionality
 
 Scenario: 2 Search enrolled member and verify enrollment information
 		Given I Login Application 
-		#Given I click on Search Member Tab
-		#When I Enter Enrolled Account Number
+		Given I click on Search Member Tab
 		And I Enter First Name which in enrolled for the given Account Number
 		And I Enter Last Name which in enrolled for the given Account Number
 		And I Enter contact no which in enrolled for the given Account Number
@@ -37,13 +36,22 @@ Scenario: 4 Enroll new member in healthcare plan
 		Given I Login Application
 		Given I Navigate to the member registration page
 		When I Fill all fields in Personal Details
+		And I Fill all fields in contact details
 		#And I Fill all  fields in Address details
-		#And I Fill all fields in contact details
-		#And I Enter SSN
-		#And I Select the benefit plan
 		#And I Click on register button
 
 
 
+Scenario: 5 Amend demographic details for the enrolled member
+	   Given I Login Application
+	   Given I click on Search Member Tab
+	   When I Enter the valid details to search a member
+	   And I Click on search button
+	   And I Click on edit icon in member  search result grid under Action column
+
+Scenario: 6 Add benefit plan
+		Given I Login Application
+		Given I Click on Benefit plan tab
+		When I fill in New Benefit plan details
 
 
