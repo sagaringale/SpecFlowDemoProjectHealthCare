@@ -65,11 +65,14 @@ namespace SpecFlowLinkGroupDemo
             driver.FindElement(By.XPath("//span[contains(text(),'Login')]")).Click();
         }
 
-       /* [Given(@"I click on Search Member Tab")]
+        
+        [Given(@"I click on Search Member Tab")]
         public void GivenIClickOnSearchMemberTab()
         {
             driver.FindElement(By.XPath("//span[contains(text(),'Search Member')]")).Click();
-        }*/
+        }
+
+        
 
         /*[When(@"I Enter Enrolled Account Number")]
         public void WhenIEnterTheAccountNumber()
@@ -176,41 +179,103 @@ namespace SpecFlowLinkGroupDemo
         public void WhenIFillAllFieldsInPersonalDetails()
         {
             driver.FindElement(By.XPath("//input[@id='mat-input-8']")).Click();
-            driver.FindElement(By.XPath("//input[@id='mat-input-8']")).SendKeys("sagar");
+            driver.FindElement(By.XPath("//input[@id='mat-input-8']")).SendKeys("Test1");
+            //driver.Manage().Timeouts().ImplicitWait = TimeSpan.FromSeconds(60);
+            driver.FindElement(By.XPath("//input[@id='mat-input-10']")).Click();
+            driver.FindElement(By.XPath("//input[@id='mat-input-10']")).SendKeys("Test2");
+
+            driver.FindElement(By.XPath("//body/app-root[1]/app-main-layout[1]/div[1]/app-registermember[1]/section[1]/div[1]/div[2]/div[1]/div[1]/div[1]/form[1]/div[2]/div[2]/div[2]/mat-form-field[1]/div[1]/div[1]/div[4]/mat-datepicker-toggle[1]/button[1]/span[1]/*[1]")).Click();
+            driver.FindElement(By.XPath("//span[@id='mat-calendar-button-0']")).Click();
+            //driver.FindElement(By.XPath("//span[@id='mat-calendar-button-0']")).Click();
+            driver.FindElement(By.XPath("//div[contains(text(),'2000')]")).Click();
+
+            //driver.FindElement(By.XPath("//tbody/tr[1]/td[1]/button[1]/div[1]")).Click();
+            driver.FindElement(By.XPath("//div[contains(text(),'FEB')]")).Click();
+
+            driver.FindElement(By.XPath("//div[contains(text(),' 2 ')]")).Click();
+
+            driver.FindElement(By.XPath("//input[@formcontrolname='ssn']")).Click();
+            driver.FindElement(By.XPath("//input[@formcontrolname='ssn']")).SendKeys("7894561231");
+
+
+
+            //driver.Close();
+        }
+
+    
+
+        [When(@"I Fill all fields in contact details")]
+        public void WhenIFillAllFieldsInContactDetails()
+        {
+            driver.FindElement(By.XPath("//input[@formcontrolname='email']")).Click();
+            driver.FindElement(By.XPath("//input[@formcontrolname='email']")).SendKeys("sagar@gmail.com");
+            driver.FindElement(By.XPath("//input[@formcontrolname='contactNo']")).Click();
+            driver.FindElement(By.XPath("//input[@formcontrolname='contactNo']")).SendKeys("9888888888");
+
             driver.Quit();
         }
 
         [When(@"I Fill all  fields in Address details")]
         public void WhenIFillAllFieldsInAddressDetails()
         {
-            throw new PendingStepException();
+            var element = driver.FindElement(By.XPath("//span[contains(text(),'Reset')]"));
+            Actions actions = new Actions(driver);
+            actions.MoveToElement(element);
+            actions.Perform();
+
+            driver.FindElement(By.XPath("//h2[contains(text(),'Address Details')]")).Click();
+            driver.Quit();
+            driver.FindElement(By.XPath("//input[@id='mat-input-8']")).Click();
+            driver.FindElement(By.XPath("//input[@id='mat-input-8']")).SendKeys("Pune");
+
+
+            
+
+            //driver.FindElement(By.XPath("//input[@formcontrolname='country']")).Click();
+           // driver.FindElement(By.XPath("//input[@formcontrolname='country']")).SendKeys("India");
+
+            //driver.FindElement(By.XPath("//input[@formcontrolname='state']")).Click();
+            //driver.FindElement(By.XPath("//input[@formcontrolname='state']")).SendKeys("Maharashtra");
+
+            //driver.FindElement(By.XPath("//input[@formcontrolname='city']")).Click();
+            //driver.FindElement(By.XPath("//input[@formcontrolname='city']")).SendKeys("Pune");
+
+            //driver.FindElement(By.XPath("//input[@formcontrolname='city']")).Click();
+            //driver.FindElement(By.XPath("//input[@formcontrolname='city']")).SendKeys("Pune");
+
+            //driver.FindElement(By.XPath("//input[@formcontrolname='city']")).Click();
+            //driver.FindElement(By.XPath("//input[@formcontrolname='city']")).SendKeys("Pune");
+
         }
 
-        [When(@"I Fill all fields in contact details")]
-        public void WhenIFillAllFieldsInContactDetails()
-        {
-            throw new PendingStepException();
-        }
-
-        [When(@"I Enter SSN")]
-        public void WhenIEnterSSN()
-        {
-            throw new PendingStepException();
-        }
-
-        [When(@"I Select the benefit plan")]
-        public void WhenISelectTheBenefitPlan()
-        {
-            throw new PendingStepException();
-        }
+        
 
         [When(@"I Click on register button")]
         public void WhenIClickOnRegisterButton()
         {
-            throw new PendingStepException();
+            driver.FindElement(By.XPath("//body/app-root[1]/app-main-layout[1]/div[1]/app-registermember[1]/section[1]/div[1]/div[2]/div[1]/div[1]/div[1]/form[1]/div[4]/div[3]/div[3]/button[1]/span[1]")).Click();
         }
 
+        [When(@"I Enter the valid details to search a member")]
+        public void WhenIEnterTheValidDetailsToSearchAMember()
+        {
+            driver.FindElement(By.XPath("//input[@formcontrolname='firstName']")).Click();
 
+            driver.FindElement(By.XPath("//input[@formcontrolname='firstName']")).SendKeys("sagar");
+        }
+
+        [When(@"I Click on search button")]
+        public void WhenIClickOnSearchButton()
+        {
+            driver.FindElement(By.XPath("//span[contains(text(),' Search ')]")).Click();
+        }
+
+        [When(@"I Click on edit icon in member  search result grid under Action column")]
+        public void WhenIClickOnEditIconInMemberSearchResultGridUnderActionColumn()
+        {
+            driver.FindElement(By.XPath("//tbody/tr[1]/td[7]/a[2]/app-feather-icons[1]/i-feather[1]/*[1]")).Click();
+            driver.Quit();
+        }
 
 
 
