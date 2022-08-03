@@ -50,7 +50,10 @@ Scenario: 5 Amend demographic details for the enrolled member
 	   And I Update the contact details
 	   And I Click on update button
 
-
+Scenario: 6 Add benefit plan
+		Given I Login Application
+		Given I Click on Benefit plan tab
+		When I fill in New Benefit plan details
 
 Scenario: 6 Verify Try to enroll member without SSN
 	   Given I Login Application
