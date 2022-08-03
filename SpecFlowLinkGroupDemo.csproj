@@ -6,10 +6,15 @@
 
   <ItemGroup>
     <Compile Remove="Drivers\**" />
+    <Compile Remove="Pages\**" />
     <EmbeddedResource Remove="Drivers\**" />
+    <EmbeddedResource Remove="Pages\**" />
     <None Remove="Drivers\**" />
+    <None Remove="Pages\**" />
     <SpecFlowFeatureFiles Remove="Drivers\**" />
+    <SpecFlowFeatureFiles Remove="Pages\**" />
     <SpecFlowObsoleteCodeBehindFiles Remove="Drivers\**" />
+    <SpecFlowObsoleteCodeBehindFiles Remove="Pages\**" />
   </ItemGroup>
 
   <ItemGroup>
@@ -56,7 +61,6 @@
   </ItemGroup>
 
   <ItemGroup>
-    <Folder Include="Pages\" />
     <Folder Include="Resources\" />
   </ItemGroup>
 
