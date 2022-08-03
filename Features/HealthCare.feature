@@ -37,8 +37,8 @@ Scenario: 4 Enroll new member in healthcare plan
 		Given I Navigate to the member registration page
 		When I Fill all fields in Personal Details
 		And I Fill all fields in contact details
-		#And I Fill all  fields in Address details
-		#And I Click on register button
+		And I Fill all  fields in Address details
+		And I Click on register button
 
 
 
@@ -48,10 +48,27 @@ Scenario: 5 Amend demographic details for the enrolled member
 	   When I Enter the valid details to search a member
 	   And I Click on search button
 	   And I Click on edit icon in member  search result grid under Action column
+	   And I Update the contact details
+	   And I Click on update button
 
 Scenario: 6 Add benefit plan
 		Given I Login Application
 		Given I Click on Benefit plan tab
 		When I fill in New Benefit plan details
 
+Scenario: 6 Verify Try to enroll member without SSN
+	   Given I Login Application
+		Given I Navigate to the member registration page
+		When I Fill Fields in personal details
+		And I Fill all fields in contact details
+		And I Left SSN field blank
+		Then Verify register button not visible
 
+
+Scenario: 7 Verify Try to enroll member without Last Name
+		Given I Login Application
+		Given I Navigate to the member registration page
+		When I Fill all fields in Personal Details except Last Name
+		And I Fill all fields in contact details
+		And I Left SSN field blank
+		Then Verify register button not visible 
