@@ -80,14 +80,7 @@ Scenario: 6 Verify Try to enroll member without SSN
 		And I Left SSN field blank
 		Then Verify register button not visible
 
-
-Scenario: 7 Verify Try to enroll member without Last Name
-		Given I Login Application
-		Given I Navigate to the member registration page
-		When I Fill all fields in Personal Details except Last Name
-		And I Fill all fields in contact details
-		And I Left SSN field blank
-		Then Verify register button not visible 
+ 
 
 Scenario: 10 Verify Change benefit plan of enrolled member
 	    Given I Login Application
