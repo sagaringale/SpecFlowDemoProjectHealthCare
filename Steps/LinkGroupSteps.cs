@@ -259,7 +259,7 @@ namespace SpecFlowLinkGroupDemo
         {
             driver.FindElement(By.XPath("//input[@formcontrolname='firstName']")).Click();
 
-            driver.FindElement(By.XPath("//input[@formcontrolname='firstName']")).SendKeys("sagar");
+            driver.FindElement(By.XPath("//input[@formcontrolname='firstName']")).SendKeys("aniket");
         }
 
         [When(@"I Click on search button")]
@@ -352,6 +352,38 @@ namespace SpecFlowLinkGroupDemo
             driver.FindElement(By.XPath("//div[contains(text(),' 2 ')]")).Click();
 
         }
+
+        [When(@"I Click on Pluse Icon")]
+        public void WhenIClickOnPluseIcon()
+        {
+            driver.FindElement(By.XPath("//tbody/tr[1]/td[7]/a[1]/app-feather-icons[1]/i-feather[1]/*[1]")).Click();
+
+        }
+
+        [When(@"I Change the existing benefit plan")]
+        public void WhenIChangeTheExistingBenefitPlan()
+        {
+            driver.FindElement(By.XPath("//tbody/tr[256]/td[2]")).Click();
+            driver.FindElement(By.XPath("//tbody/tr[256]/td[1]/mat-radio-button[1]/label[1]/span[1]/span[1]")).Click();
+            driver.FindElement(By.XPath("//mat-icon[contains(text(),'format_list_numbered')]")).Click();
+            WebElement radio = (WebElement)driver.FindElement(By.XPath("//body/div[2]/div[2]/div[1]/div[1]/div[1]/mat-option[2]/span[1]"));
+            radio.Click();
+
+            //driver.FindElement(By.XPath("//body/div[2]/div[2]/div[1]/div[1]/div[1]/mat-option[2]/span[1]")).Click();
+
+            driver.FindElement(By.XPath("//body/app-root[1]/app-main-layout[1]/div[1]/app-viewinsurancebenefit[1]/section[1]/div[1]/div[4]/div[1]/div[1]/form[1]/div[1]/div[2]/mat-form-field[1]/div[1]/div[1]/div[4]/mat-datepicker-toggle[1]/button[1]/span[1]/*[1]")).Click();
+            driver.FindElement(By.XPath("//tbody/tr[2]/td[4]/button[1]/div[1]")).Click();
+           
+        }
+
+        [Then(@"I Click and Assign Benefit Plan Button")]
+        public void ThenIClickAndAssignBenefitPlanButton()
+        {
+            driver.FindElement(By.XPath("//body/app-root[1]/app-main-layout[1]/div[1]/app-viewinsurancebenefit[1]/section[1]/div[1]/div[4]/div[1]/div[1]/form[1]/div[2]/div[3]/button[1]/span[1]")).Click();
+            
+        }
+
+
 
     }
 

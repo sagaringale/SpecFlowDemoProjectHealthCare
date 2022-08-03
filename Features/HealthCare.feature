@@ -25,7 +25,6 @@ Scenario: 2 Search enrolled member and verify enrollment information
 
 Scenario: 3 Search member and that is not enrolled.
 		Given I Login Application
-		#When I Enter Enrolled No which in not Account Number
 		And I Enter First Name which in not enrolled for the given Account Number
 		And I Enter Last Name which in not enrolled for the given Account Number
 		And I Enter contact no which in not enrolled for the given Account Number
@@ -69,3 +68,12 @@ Scenario: 7 Verify Try to enroll member without Last Name
 		And I Fill all fields in contact details
 		And I Left SSN field blank
 		Then Verify register button not visible 
+
+Scenario: 10 Verify Change benefit plan of enrolled member
+	    Given I Login Application
+		Given I click on Search Member Tab
+		When I Enter the valid details to search a member
+	    And I Click on search button
+		And I Click on Pluse Icon
+		And I Change the existing benefit plan
+		Then I Click and Assign Benefit Plan Button
