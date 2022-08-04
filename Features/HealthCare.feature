@@ -56,10 +56,15 @@ Scenario: 5 Amend demographic details for the enrolled member
 Scenario: 7 Verify Try to enroll member without Last Name
 		Given I Login Application
 		Given I Navigate to the member registration page
-		When I Fill all fields in Personal Details except Last Name
+		When I Fill all fields in Personal Details
 		And I Fill all fields in contact details
-		And I Left SSN field blank
-		Then Verify register button not visible 
+		And I Fill all  fields in Address details
+		And I Left Lastname field blank
+		Then register button disabled state should be '<buttonstatus>'
+
+		Examples:
+		|buttonstatus|
+		|true		|
 
 Scenario: 8 Add benefit plan
 		Given I Login Application
@@ -78,7 +83,11 @@ Scenario: 6 Verify Try to enroll member without SSN
 		When I Fill Fields in personal details
 		And I Fill all fields in contact details
 		And I Left SSN field blank
-		Then Verify register button not visible
+		Then register button disabled state should be '<buttonstatus>'
+
+		Examples:
+		|buttonstatus|
+		|true		|
 
  
 
@@ -90,4 +99,11 @@ Scenario: 10 Verify Change benefit plan of enrolled member
 		And I Click on Pluse Icon
 		And I Change the existing benefit plan
 		Then I Click and Assign Benefit Plan Button
+
+Scenario: 11 Verify termination of benefit plan of enrolled member
+		Given I Login Application
+		Given I click on Search Member Tab
+		When I Enter the valid details to search a member
+	    And I Click on search button
+		And I Click on eye button
 
