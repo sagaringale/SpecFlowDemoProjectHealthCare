@@ -1,9 +1,8 @@
-﻿using System;
-using System.Diagnostics;
-using System.IO;
-using OpenQA.Selenium;
+﻿using OpenQA.Selenium;
 using OpenQA.Selenium.Chrome;
 using OpenQA.Selenium.Firefox;
+using System;
+using System.IO;
 
 namespace SpecFlowLinkGroupDemo.Utils.Selenium
 {
