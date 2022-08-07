@@ -1,7 +1,5 @@
 ﻿Feature: Health Care
 	
-
-
 Scenario Outline: 1 Verify Login Functionality
 		Given I open the Health Care home page
 		When Enter username the '<username>' element
@@ -52,6 +50,20 @@ Scenario: 5 Amend demographic details for the enrolled member
 
 
 
+Scenario: 6 Verify Try to enroll member without SSN
+	   Given I Login Application
+		Given I Navigate to the member registration page
+		When I Fill Fields in personal details
+		And I Fill all fields in contact details
+		And I Left SSN field blank
+		Then register button disabled state should be '<buttonstatus>'
+
+		Examples:
+		|buttonstatus|
+		|true		 |
+
+
+
 
 Scenario: 7 Verify Try to enroll member without Last Name
 		Given I Login Application
@@ -64,7 +76,7 @@ Scenario: 7 Verify Try to enroll member without Last Name
 
 		Examples:
 		|buttonstatus|
-		|true		|
+		|true		 |
 
 Scenario: 8 Add benefit plan
 		Given I Login Application
@@ -76,18 +88,6 @@ Scenario: 9 Amend benefit plan
 		Given I Login Application
 		Given I Click on Benefit plan tab
 		When I amend benefit plan
-
-Scenario: 6 Verify Try to enroll member without SSN
-	   Given I Login Application
-		Given I Navigate to the member registration page
-		When I Fill Fields in personal details
-		And I Fill all fields in contact details
-		And I Left SSN field blank
-		Then register button disabled state should be '<buttonstatus>'
-
-		Examples:
-		|buttonstatus|
-		|true		|
 
  
 

@@ -1,9 +1,13 @@
-﻿using NUnit.Framework;
+﻿using AventStack.ExtentReports;
+using AventStack.ExtentReports.Reporter;
+using NUnit.Framework;
 using OpenQA.Selenium;
 using OpenQA.Selenium.Chrome;
 using OpenQA.Selenium.Firefox;
 using OpenQA.Selenium.Interactions;
 using System;
+using System.Diagnostics;
+using System.Threading;
 using TechTalk.SpecFlow;
 
 namespace SpecFlowLinkGroupDemo
@@ -15,8 +19,7 @@ namespace SpecFlowLinkGroupDemo
 
         //        private object ExpectedConditions;
 
-        //        private object ExpectedConditions;
-
+      
 
         private Actions actions => new Actions(driver);
 
@@ -24,6 +27,12 @@ namespace SpecFlowLinkGroupDemo
         [Given(@"I open the Health Care home page")]
         public void WhenIOpenTheHomePage()
         {
+
+           // var htmlReporter = new ExtentHtmlReporter(@"C:\Users\Sagar\source\repos\SpecFlowDemo\ExtentReports\ExtentReport.html");
+            //htmlReporter.Configuration().Theme = AventStack.ExtentReports.Reporter.Configuration.Theme.Dark;
+
+            //var extent = new ExtentReports();
+
             driver = new ChromeDriver(@"../../../Resources");
             driver.Manage().Window.Maximize();
 
@@ -56,6 +65,7 @@ namespace SpecFlowLinkGroupDemo
         [Given(@"I Login Application")]
         public void GivenILoginApplication()
         {
+
             driver = new FirefoxDriver(@"../../../Resources");
             driver.Manage().Window.Maximize();
             driver.Manage().Timeouts().ImplicitWait = TimeSpan.FromSeconds(60);
@@ -116,13 +126,6 @@ namespace SpecFlowLinkGroupDemo
         }
 
 
-        /*  [When(@"I Verify Member List Details")]
-          public void WhenIVerifyMemberListDetails()
-          {
-              string actualvalue = driver.FindElement(By.XPath("//th[contains(text(),'Id')]")).Text;
-              Assert.True(actualvalue.Contains("Id"), actualvalue + " doesn't contains 'Not ID'");
-              driver.Quit();
-          } */
 
 
 
@@ -183,6 +186,7 @@ namespace SpecFlowLinkGroupDemo
             //driver.Manage().Timeouts().ImplicitWait = TimeSpan.FromSeconds(60);
             driver.FindElement(By.XPath("//input[@id='mat-input-10']")).Click();
             driver.FindElement(By.XPath("//input[@id='mat-input-10']")).SendKeys("Test2");
+
 
             driver.FindElement(By.XPath("//body/app-root[1]/app-main-layout[1]/div[1]/app-registermember[1]/section[1]/div[1]/div[2]/div[1]/div[1]/div[1]/form[1]/div[2]/div[2]/div[2]/mat-form-field[1]/div[1]/div[1]/div[4]/mat-datepicker-toggle[1]/button[1]/span[1]/*[1]")).Click();
             driver.FindElement(By.XPath("//span[@id='mat-calendar-button-0']")).Click();
@@ -329,7 +333,7 @@ namespace SpecFlowLinkGroupDemo
         public void WhenIClickOnUpdateButton()
         {
             driver.FindElement(By.XPath("//span[normalize-space()='Update']")).Click();
-            //driver.FindElement(By.XPath("/html/body/app-root/app-main-layout/div/app-editmembersummary/section/div/div[2]/div/div/div/form/div[4]/div[3]/div[3]/button[1]/span[1]")).Click();
+            driver.Quit();            
         }
 
         [When(@"I Left Lastname field blank")]
@@ -432,11 +436,10 @@ namespace SpecFlowLinkGroupDemo
         public void WhenClickOnAmendBenefitPlanButton()
         {
             driver.FindElement(By.TagName("body")).SendKeys(Keys.PageDown);
-            IWebElement editButton = driver.FindElement(By.XPath("//tbody/tr[1]/td[8]/button[1]/span[1]/app-feather-icons[1]/i-feather[1]/*[1]"));
-            Actions actions = new Actions(driver);
-            actions.MoveToElement(editButton);
-            actions.Perform();
+            Thread.Sleep(3000);
+            IWebElement editButton = driver.FindElement(By.XPath("//i-feather[@class='tbl-fav-edit']//*[name()='svg']"));
             editButton.Click();
+            
             driver.FindElement(By.XPath("//input[@formcontrolname='companyName']")).Clear();
             driver.FindElement(By.XPath("//input[@formcontrolname='companyName']")).SendKeys("Updated company name");
             driver.FindElement(By.XPath("//textarea[@id='mat-input-12']")).SendKeys("Sample benefit Plan");
@@ -447,10 +450,12 @@ namespace SpecFlowLinkGroupDemo
         [When(@"I Click on eye button")]
         public void WhenClickOnEyeButton()
         {
+            
             driver.FindElement(By.XPath("//tbody/tr[1]/td[7]/a[3]/app-feather-icons[1]/i-feather[1]/*[1]")).Click();
             driver.FindElement(By.TagName("body")).SendKeys(Keys.Control + Keys.End);
+            Thread.Sleep(3000);
             IJavaScriptExecutor js = (IJavaScriptExecutor)driver;
-            IWebElement terminateButton = driver.FindElement(By.XPath("//i-feather[@class='tbl-fav-x-square']"));
+            IWebElement terminateButton = driver.FindElement(By.XPath("//i-feather[@class='tbl-fav-x-square']//*[name()='svg']"));
             js.ExecuteScript("arguments[0].click(); ", terminateButton);
             driver.FindElement(By.XPath("//span[contains(text(),'Delete')]")).Click();
             driver.Quit();
