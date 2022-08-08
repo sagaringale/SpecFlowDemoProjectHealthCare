@@ -18,8 +18,9 @@ namespace SpecFlowLinkGroupDemo.Steps
         {
             //    LinkGroupSteps.driver.Initialize();
             //    Page.Initialize();
-            string path1 = AppDomain.CurrentDomain.BaseDirectory.Replace("\\bin\\Debug", "");
+            string path1 = AppDomain.CurrentDomain.BaseDirectory.Replace("\\bin\\Debug\\netcoreapp3.1", "");
             string path = path1 + "Reports\\index.html";
+
             ExtentHtmlReporter htmlReporter = new ExtentHtmlReporter(path);
             htmlReporter.Config.Theme = AventStack.ExtentReports.Reporter.Configuration.Theme.Standard;
             extent = new ExtentReports();
@@ -55,7 +56,7 @@ namespace SpecFlowLinkGroupDemo.Steps
                 else if (stepType == "And")
                     scenario.CreateNode<And>(scenarioContext.StepContext.StepInfo.Text);
             }
-            else if (scenarioContext.TestError!= null)
+            else if (scenarioContext.TestError != null)
             {
                 if (stepType == "Given")
                 {

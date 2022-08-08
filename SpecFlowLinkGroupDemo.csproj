@@ -1,8 +1,8 @@
 ﻿<Project Sdk="Microsoft.NET.Sdk">
 
-  <PropertyGroup>
-    <TargetFramework>netcoreapp3.1</TargetFramework>
-  </PropertyGroup>
+	<PropertyGroup>
+		<TargetFramework>netcoreapp3.1</TargetFramework>
+	</PropertyGroup>
 
   <ItemGroup>
     <Compile Remove="Drivers\**" />
@@ -64,6 +64,7 @@
 
   <ItemGroup>
     <Folder Include="Hooks\" />
+    <Folder Include="Reports\" />
     <Folder Include="Resources\" />
   </ItemGroup>
 

@@ -118,7 +118,7 @@ namespace SpecFlowLinkGroupDemo
         public void GivenIClickOnSearchButton()
         {
             driver.FindElement(By.XPath("//span[contains(text(),' Search ')]")).Click();
-           // driver.Quit();
+            // driver.Quit();
         }
 
 
@@ -372,7 +372,7 @@ namespace SpecFlowLinkGroupDemo
             //driver.FindElements(By.XPath("//body/app-root[1]/app-main-layout[1]/div[1]/app-registermember[1]/section[1]/div[1]/div[2]/div[1]/div[1]/div[1]/form[1]/div[4]/div[3]/div[3]/button[1]/span[1]"));
             String buttonDisabledStatus = driver.FindElement(By.XPath("//button[@type='submit']")).GetAttribute("disabled");
             Assert.AreEqual(expectedButtonDisabled, buttonDisabledStatus);
-           // driver.Quit();
+            // driver.Quit();
         }
 
         [When(@"I Fill all fields in Personal Details except Last Name")]
@@ -421,7 +421,7 @@ namespace SpecFlowLinkGroupDemo
         public void ThenIClickAndAssignBenefitPlanButton()
         {
             driver.FindElement(By.XPath("//body/app-root[1]/app-main-layout[1]/div[1]/app-viewinsurancebenefit[1]/section[1]/div[1]/div[4]/div[1]/div[1]/form[1]/div[2]/div[3]/button[1]/span[1]")).Click();
-            
+
         }
 
 
