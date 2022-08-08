@@ -55,7 +55,7 @@ namespace SpecFlowLinkGroupDemo
         public void WhenIClickOnSignInButton()
         {
             driver.FindElement(By.XPath("//span[contains(text(),'Login')]")).Click();
-            driver.Quit();
+            //driver.Quit();
 
         }
         [Given(@"I Login Application")]
@@ -160,7 +160,7 @@ namespace SpecFlowLinkGroupDemo
         public void GivenIClickOnSearchValidateButton()
         {
             driver.FindElement(By.XPath("//span[contains(text(),' Search ')]")).Click();
-            driver.Quit();
+            //driver.Quit();
         }
 
         [Given(@"I Navigate to the member registration page")]
@@ -247,7 +247,7 @@ namespace SpecFlowLinkGroupDemo
         public void WhenIClickOnRegisterButton()
         {
             driver.FindElement(By.XPath("//button[@type='submit']")).Click();
-            driver.Close();
+            //driver.Close();
         }
 
         [When(@"I Enter the valid details to search a member")]
@@ -304,7 +304,7 @@ namespace SpecFlowLinkGroupDemo
 
             driver.FindElement(By.XPath("//span[contains(text(),'Add Benefit')]")).Click();
 
-            driver.Quit();
+            //driver.Quit();
         }
 
 
@@ -326,7 +326,7 @@ namespace SpecFlowLinkGroupDemo
         public void WhenIClickOnUpdateButton()
         {
             driver.FindElement(By.XPath("//span[normalize-space()='Update']")).Click();
-            driver.Quit();
+            //driver.Quit();
         }
 
         [When(@"I Left Lastname field blank")]
@@ -372,7 +372,7 @@ namespace SpecFlowLinkGroupDemo
             //driver.FindElements(By.XPath("//body/app-root[1]/app-main-layout[1]/div[1]/app-registermember[1]/section[1]/div[1]/div[2]/div[1]/div[1]/div[1]/form[1]/div[4]/div[3]/div[3]/button[1]/span[1]"));
             String buttonDisabledStatus = driver.FindElement(By.XPath("//button[@type='submit']")).GetAttribute("disabled");
             Assert.AreEqual(expectedButtonDisabled, buttonDisabledStatus);
-            driver.Quit();
+           // driver.Quit();
         }
 
         [When(@"I Fill all fields in Personal Details except Last Name")]
@@ -392,7 +392,7 @@ namespace SpecFlowLinkGroupDemo
 
             driver.FindElement(By.XPath("//div[contains(text(),' 2 ')]")).Click();
 
-            driver.Quit();
+            //driver.Quit();
 
         }
 
@@ -421,7 +421,7 @@ namespace SpecFlowLinkGroupDemo
         public void ThenIClickAndAssignBenefitPlanButton()
         {
             driver.FindElement(By.XPath("//body/app-root[1]/app-main-layout[1]/div[1]/app-viewinsurancebenefit[1]/section[1]/div[1]/div[4]/div[1]/div[1]/form[1]/div[2]/div[3]/button[1]/span[1]")).Click();
-            driver.Close();
+            
         }
 
 
@@ -438,7 +438,7 @@ namespace SpecFlowLinkGroupDemo
             driver.FindElement(By.XPath("//textarea[@id='mat-input-12']")).SendKeys("Sample benefit Plan");
             driver.FindElement(By.XPath("//span[contains(text(),'Update Benefit')]")).Click();
 
-            driver.Quit();
+            //driver.Quit();
         }
         [When(@"I Click on eye button")]
         public void WhenClickOnEyeButton()
@@ -451,7 +451,7 @@ namespace SpecFlowLinkGroupDemo
             IWebElement terminateButton = driver.FindElement(By.XPath("//i-feather[@class='tbl-fav-x-square']//*[name()='svg']"));
             js.ExecuteScript("arguments[0].click(); ", terminateButton);
             driver.FindElement(By.XPath("//span[contains(text(),'Delete')]")).Click();
-            driver.Quit();
+            //driver.Quit();
         }
 
     }

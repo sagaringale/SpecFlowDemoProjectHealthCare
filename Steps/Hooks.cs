@@ -42,36 +42,36 @@ namespace SpecFlowLinkGroupDemo.Steps
         [AfterStep]
         public void InsertReportingSteps(ScenarioContext scenarioContext)
         {
-            var stepType = scenarioContext.StepContext.GetType().ToString();
+            var stepType = scenarioContext.StepContext.StepInfo.StepDefinitionType.ToString();
             Console.WriteLine(stepType);
             if (scenarioContext.TestError == null)
             {
                 if (stepType == "Given")
-                    scenario.CreateNode<Given>(scenarioContext.StepContext.ToString());
+                    scenario.CreateNode<Given>(scenarioContext.StepContext.StepInfo.Text);
                 else if (stepType == "When")
-                    scenario.CreateNode<When>(scenarioContext.StepContext.ToString());
+                    scenario.CreateNode<When>(scenarioContext.StepContext.StepInfo.Text);
                 else if (stepType == "Then")
-                    scenario.CreateNode<Then>(scenarioContext.StepContext.ToString());
+                    scenario.CreateNode<Then>(scenarioContext.StepContext.StepInfo.Text);
                 else if (stepType == "And")
-                    scenario.CreateNode<And>(scenarioContext.StepContext.ToString());
+                    scenario.CreateNode<And>(scenarioContext.StepContext.StepInfo.Text);
             }
-            else if (scenarioContext.TestError != null)
+            else if (scenarioContext.TestError!= null)
             {
                 if (stepType == "Given")
                 {
-                    scenario.CreateNode<Given>(scenarioContext.StepContext.ToString()).Fail(scenarioContext.TestError.Message);
+                    scenario.CreateNode<Given>(scenarioContext.StepContext.StepInfo.Text).Fail(scenarioContext.TestError.StackTrace);
                 }
                 else if (stepType == "When")
                 {
-                    scenario.CreateNode<When>(scenarioContext.StepContext.ToString()).Fail(scenarioContext.TestError.Message);
+                    scenario.CreateNode<When>(scenarioContext.StepContext.StepInfo.Text).Fail(scenarioContext.TestError.StackTrace);
                 }
                 else if (stepType == "Then")
                 {
-                    scenario.CreateNode<Then>(scenarioContext.StepContext.ToString()).Fail(scenarioContext.TestError.Message);
+                    scenario.CreateNode<Then>(scenarioContext.StepContext.StepInfo.Text).Fail(scenarioContext.TestError.StackTrace);
                 }
                 else if (stepType == "And")
                 {
-                    scenario.CreateNode<And>(scenarioContext.StepContext.ToString()).Fail(scenarioContext.TestError.Message);
+                    scenario.CreateNode<And>(scenarioContext.StepContext.StepInfo.Text).Fail(scenarioContext.TestError.StackTrace);
                 }
             }
         }
@@ -79,7 +79,9 @@ namespace SpecFlowLinkGroupDemo.Steps
         public void AfterScenario()
         {
             Console.WriteLine("AfterScenario");
+
             //implement logic that has to run after executing each scenario
+            LinkGroupSteps.driver.Quit();
         }
         [AfterTestRun]
         public static void AfterTestRun()
