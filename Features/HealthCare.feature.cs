@@ -19,41 +19,39 @@ namespace SpecFlowLinkGroupDemo.Features
     
     [System.CodeDom.Compiler.GeneratedCodeAttribute("TechTalk.SpecFlow", "3.9.0.0")]
     [System.Runtime.CompilerServices.CompilerGeneratedAttribute()]
-    public partial class HealthCareFeature : object, Xunit.IClassFixture<HealthCareFeature.FixtureData>, System.IDisposable
+    [NUnit.Framework.TestFixtureAttribute()]
+    [NUnit.Framework.DescriptionAttribute("Health Care")]
+    public partial class HealthCareFeature
     {
         
-        private static TechTalk.SpecFlow.ITestRunner testRunner;
+        private TechTalk.SpecFlow.ITestRunner testRunner;
         
         private static string[] featureTags = ((string[])(null));
-        
-        private Xunit.Abstractions.ITestOutputHelper _testOutputHelper;
         
 #line 1 "HealthCare.feature"
 #line hidden
         
-        public HealthCareFeature(HealthCareFeature.FixtureData fixtureData, SpecFlowLinkGroupDemo_XUnitAssemblyFixture assemblyFixture, Xunit.Abstractions.ITestOutputHelper testOutputHelper)
-        {
-            this._testOutputHelper = testOutputHelper;
-            this.TestInitialize();
-        }
-        
-        public static void FeatureSetup()
+        [NUnit.Framework.OneTimeSetUpAttribute()]
+        public virtual void FeatureSetup()
         {
             testRunner = TechTalk.SpecFlow.TestRunnerManager.GetTestRunner();
             TechTalk.SpecFlow.FeatureInfo featureInfo = new TechTalk.SpecFlow.FeatureInfo(new System.Globalization.CultureInfo("en-US"), "Features", "Health Care", null, ProgrammingLanguage.CSharp, featureTags);
             testRunner.OnFeatureStart(featureInfo);
         }
         
-        public static void FeatureTearDown()
+        [NUnit.Framework.OneTimeTearDownAttribute()]
+        public virtual void FeatureTearDown()
         {
             testRunner.OnFeatureEnd();
             testRunner = null;
         }
         
+        [NUnit.Framework.SetUpAttribute()]
         public void TestInitialize()
         {
         }
         
+        [NUnit.Framework.TearDownAttribute()]
         public void TestTearDown()
         {
             testRunner.OnScenarioEnd();
@@ -62,7 +60,7 @@ namespace SpecFlowLinkGroupDemo.Features
         public void ScenarioInitialize(TechTalk.SpecFlow.ScenarioInfo scenarioInfo)
         {
             testRunner.OnScenarioInitialize(scenarioInfo);
-            testRunner.ScenarioContext.ScenarioContainer.RegisterInstanceAs<Xunit.Abstractions.ITestOutputHelper>(_testOutputHelper);
+            testRunner.ScenarioContext.ScenarioContainer.RegisterInstanceAs<NUnit.Framework.TestContext>(NUnit.Framework.TestContext.CurrentContext);
         }
         
         public void ScenarioStart()
@@ -75,22 +73,16 @@ namespace SpecFlowLinkGroupDemo.Features
             testRunner.CollectScenarioErrors();
         }
         
-        void System.IDisposable.Dispose()
-        {
-            this.TestTearDown();
-        }
-        
-        [Xunit.SkippableTheoryAttribute(DisplayName="1 Verify Login Functionality")]
-        [Xunit.TraitAttribute("FeatureTitle", "Health Care")]
-        [Xunit.TraitAttribute("Description", "1 Verify Login Functionality")]
-        [Xunit.InlineDataAttribute("admin@gmail.com", "admin123", new string[0])]
-        public void _1VerifyLoginFunctionality(string username, string passward, string[] exampleTags)
+        [NUnit.Framework.TestAttribute()]
+        [NUnit.Framework.DescriptionAttribute("01) Verify Login Functionality")]
+        [NUnit.Framework.TestCaseAttribute("admin@gmail.com", "admin123", null)]
+        public void _01VerifyLoginFunctionality(string username, string passward, string[] exampleTags)
         {
             string[] tagsOfScenario = exampleTags;
             System.Collections.Specialized.OrderedDictionary argumentsOfScenario = new System.Collections.Specialized.OrderedDictionary();
             argumentsOfScenario.Add("username", username);
             argumentsOfScenario.Add("passward", passward);
-            TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("1 Verify Login Functionality", null, tagsOfScenario, argumentsOfScenario, featureTags);
+            TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("01) Verify Login Functionality", null, tagsOfScenario, argumentsOfScenario, featureTags);
 #line 3
 this.ScenarioInitialize(scenarioInfo);
 #line hidden
@@ -117,14 +109,13 @@ this.ScenarioInitialize(scenarioInfo);
             this.ScenarioCleanup();
         }
         
-        [Xunit.SkippableFactAttribute(DisplayName="2 Search enrolled member and verify enrollment information")]
-        [Xunit.TraitAttribute("FeatureTitle", "Health Care")]
-        [Xunit.TraitAttribute("Description", "2 Search enrolled member and verify enrollment information")]
-        public void _2SearchEnrolledMemberAndVerifyEnrollmentInformation()
+        [NUnit.Framework.TestAttribute()]
+        [NUnit.Framework.DescriptionAttribute("02) Search enrolled member and verify enrollment information")]
+        public void _02SearchEnrolledMemberAndVerifyEnrollmentInformation()
         {
             string[] tagsOfScenario = ((string[])(null));
             System.Collections.Specialized.OrderedDictionary argumentsOfScenario = new System.Collections.Specialized.OrderedDictionary();
-            TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("2 Search enrolled member and verify enrollment information", null, tagsOfScenario, argumentsOfScenario, featureTags);
+            TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("02) Search enrolled member and verify enrollment information", null, tagsOfScenario, argumentsOfScenario, featureTags);
 #line 14
 this.ScenarioInitialize(scenarioInfo);
 #line hidden
@@ -157,14 +148,13 @@ this.ScenarioInitialize(scenarioInfo);
             this.ScenarioCleanup();
         }
         
-        [Xunit.SkippableFactAttribute(DisplayName="3 Search member and that is not enrolled.")]
-        [Xunit.TraitAttribute("FeatureTitle", "Health Care")]
-        [Xunit.TraitAttribute("Description", "3 Search member and that is not enrolled.")]
-        public void _3SearchMemberAndThatIsNotEnrolled_()
+        [NUnit.Framework.TestAttribute()]
+        [NUnit.Framework.DescriptionAttribute("03) Search member and that is not enrolled.")]
+        public void _03SearchMemberAndThatIsNotEnrolled_()
         {
             string[] tagsOfScenario = ((string[])(null));
             System.Collections.Specialized.OrderedDictionary argumentsOfScenario = new System.Collections.Specialized.OrderedDictionary();
-            TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("3 Search member and that is not enrolled.", null, tagsOfScenario, argumentsOfScenario, featureTags);
+            TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("03) Search member and that is not enrolled.", null, tagsOfScenario, argumentsOfScenario, featureTags);
 #line 24
 this.ScenarioInitialize(scenarioInfo);
 #line hidden
@@ -194,14 +184,13 @@ this.ScenarioInitialize(scenarioInfo);
             this.ScenarioCleanup();
         }
         
-        [Xunit.SkippableFactAttribute(DisplayName="4 Enroll new member in healthcare plan")]
-        [Xunit.TraitAttribute("FeatureTitle", "Health Care")]
-        [Xunit.TraitAttribute("Description", "4 Enroll new member in healthcare plan")]
-        public void _4EnrollNewMemberInHealthcarePlan()
+        [NUnit.Framework.TestAttribute()]
+        [NUnit.Framework.DescriptionAttribute("04) Enroll new member in healthcare plan")]
+        public void _04EnrollNewMemberInHealthcarePlan()
         {
             string[] tagsOfScenario = ((string[])(null));
             System.Collections.Specialized.OrderedDictionary argumentsOfScenario = new System.Collections.Specialized.OrderedDictionary();
-            TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("4 Enroll new member in healthcare plan", null, tagsOfScenario, argumentsOfScenario, featureTags);
+            TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("04) Enroll new member in healthcare plan", null, tagsOfScenario, argumentsOfScenario, featureTags);
 #line 32
 this.ScenarioInitialize(scenarioInfo);
 #line hidden
@@ -234,14 +223,13 @@ this.ScenarioInitialize(scenarioInfo);
             this.ScenarioCleanup();
         }
         
-        [Xunit.SkippableFactAttribute(DisplayName="5 Amend demographic details for the enrolled member")]
-        [Xunit.TraitAttribute("FeatureTitle", "Health Care")]
-        [Xunit.TraitAttribute("Description", "5 Amend demographic details for the enrolled member")]
-        public void _5AmendDemographicDetailsForTheEnrolledMember()
+        [NUnit.Framework.TestAttribute()]
+        [NUnit.Framework.DescriptionAttribute("05) Amend demographic details for the enrolled member")]
+        public void _05AmendDemographicDetailsForTheEnrolledMember()
         {
             string[] tagsOfScenario = ((string[])(null));
             System.Collections.Specialized.OrderedDictionary argumentsOfScenario = new System.Collections.Specialized.OrderedDictionary();
-            TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("5 Amend demographic details for the enrolled member", null, tagsOfScenario, argumentsOfScenario, featureTags);
+            TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("05) Amend demographic details for the enrolled member", null, tagsOfScenario, argumentsOfScenario, featureTags);
 #line 42
 this.ScenarioInitialize(scenarioInfo);
 #line hidden
@@ -277,16 +265,15 @@ this.ScenarioInitialize(scenarioInfo);
             this.ScenarioCleanup();
         }
         
-        [Xunit.SkippableTheoryAttribute(DisplayName="6 Verify Try to enroll member without SSN")]
-        [Xunit.TraitAttribute("FeatureTitle", "Health Care")]
-        [Xunit.TraitAttribute("Description", "6 Verify Try to enroll member without SSN")]
-        [Xunit.InlineDataAttribute("true", new string[0])]
-        public void _6VerifyTryToEnrollMemberWithoutSSN(string buttonstatus, string[] exampleTags)
+        [NUnit.Framework.TestAttribute()]
+        [NUnit.Framework.DescriptionAttribute("06) Verify Try to enroll member without SSN")]
+        [NUnit.Framework.TestCaseAttribute("true", null)]
+        public void _06VerifyTryToEnrollMemberWithoutSSN(string buttonstatus, string[] exampleTags)
         {
             string[] tagsOfScenario = exampleTags;
             System.Collections.Specialized.OrderedDictionary argumentsOfScenario = new System.Collections.Specialized.OrderedDictionary();
             argumentsOfScenario.Add("buttonstatus", buttonstatus);
-            TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("6 Verify Try to enroll member without SSN", null, tagsOfScenario, argumentsOfScenario, featureTags);
+            TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("06) Verify Try to enroll member without SSN", null, tagsOfScenario, argumentsOfScenario, featureTags);
 #line 53
 this.ScenarioInitialize(scenarioInfo);
 #line hidden
@@ -319,16 +306,15 @@ this.ScenarioInitialize(scenarioInfo);
             this.ScenarioCleanup();
         }
         
-        [Xunit.SkippableTheoryAttribute(DisplayName="7 Verify Try to enroll member without Last Name")]
-        [Xunit.TraitAttribute("FeatureTitle", "Health Care")]
-        [Xunit.TraitAttribute("Description", "7 Verify Try to enroll member without Last Name")]
-        [Xunit.InlineDataAttribute("true", new string[0])]
-        public void _7VerifyTryToEnrollMemberWithoutLastName(string buttonstatus, string[] exampleTags)
+        [NUnit.Framework.TestAttribute()]
+        [NUnit.Framework.DescriptionAttribute("07) Verify Try to enroll member without Last Name")]
+        [NUnit.Framework.TestCaseAttribute("true", null)]
+        public void _07VerifyTryToEnrollMemberWithoutLastName(string buttonstatus, string[] exampleTags)
         {
             string[] tagsOfScenario = exampleTags;
             System.Collections.Specialized.OrderedDictionary argumentsOfScenario = new System.Collections.Specialized.OrderedDictionary();
             argumentsOfScenario.Add("buttonstatus", buttonstatus);
-            TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("7 Verify Try to enroll member without Last Name", null, tagsOfScenario, argumentsOfScenario, featureTags);
+            TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("07) Verify Try to enroll member without Last Name", null, tagsOfScenario, argumentsOfScenario, featureTags);
 #line 68
 this.ScenarioInitialize(scenarioInfo);
 #line hidden
@@ -364,14 +350,13 @@ this.ScenarioInitialize(scenarioInfo);
             this.ScenarioCleanup();
         }
         
-        [Xunit.SkippableFactAttribute(DisplayName="8 Add benefit plan")]
-        [Xunit.TraitAttribute("FeatureTitle", "Health Care")]
-        [Xunit.TraitAttribute("Description", "8 Add benefit plan")]
-        public void _8AddBenefitPlan()
+        [NUnit.Framework.TestAttribute()]
+        [NUnit.Framework.DescriptionAttribute("08) Add benefit plan")]
+        public void _08AddBenefitPlan()
         {
             string[] tagsOfScenario = ((string[])(null));
             System.Collections.Specialized.OrderedDictionary argumentsOfScenario = new System.Collections.Specialized.OrderedDictionary();
-            TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("8 Add benefit plan", null, tagsOfScenario, argumentsOfScenario, featureTags);
+            TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("08) Add benefit plan", null, tagsOfScenario, argumentsOfScenario, featureTags);
 #line 81
 this.ScenarioInitialize(scenarioInfo);
 #line hidden
@@ -395,14 +380,13 @@ this.ScenarioInitialize(scenarioInfo);
             this.ScenarioCleanup();
         }
         
-        [Xunit.SkippableFactAttribute(DisplayName="9 Amend benefit plan")]
-        [Xunit.TraitAttribute("FeatureTitle", "Health Care")]
-        [Xunit.TraitAttribute("Description", "9 Amend benefit plan")]
-        public void _9AmendBenefitPlan()
+        [NUnit.Framework.TestAttribute()]
+        [NUnit.Framework.DescriptionAttribute("09) Amend benefit plan")]
+        public void _09AmendBenefitPlan()
         {
             string[] tagsOfScenario = ((string[])(null));
             System.Collections.Specialized.OrderedDictionary argumentsOfScenario = new System.Collections.Specialized.OrderedDictionary();
-            TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("9 Amend benefit plan", null, tagsOfScenario, argumentsOfScenario, featureTags);
+            TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("09) Amend benefit plan", null, tagsOfScenario, argumentsOfScenario, featureTags);
 #line 87
 this.ScenarioInitialize(scenarioInfo);
 #line hidden
@@ -426,14 +410,13 @@ this.ScenarioInitialize(scenarioInfo);
             this.ScenarioCleanup();
         }
         
-        [Xunit.SkippableFactAttribute(DisplayName="10 Verify Change benefit plan of enrolled member")]
-        [Xunit.TraitAttribute("FeatureTitle", "Health Care")]
-        [Xunit.TraitAttribute("Description", "10 Verify Change benefit plan of enrolled member")]
+        [NUnit.Framework.TestAttribute()]
+        [NUnit.Framework.DescriptionAttribute("10) Verify Change benefit plan of enrolled member")]
         public void _10VerifyChangeBenefitPlanOfEnrolledMember()
         {
             string[] tagsOfScenario = ((string[])(null));
             System.Collections.Specialized.OrderedDictionary argumentsOfScenario = new System.Collections.Specialized.OrderedDictionary();
-            TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("10 Verify Change benefit plan of enrolled member", null, tagsOfScenario, argumentsOfScenario, featureTags);
+            TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("10) Verify Change benefit plan of enrolled member", null, tagsOfScenario, argumentsOfScenario, featureTags);
 #line 94
 this.ScenarioInitialize(scenarioInfo);
 #line hidden
@@ -469,14 +452,13 @@ this.ScenarioInitialize(scenarioInfo);
             this.ScenarioCleanup();
         }
         
-        [Xunit.SkippableFactAttribute(DisplayName="11 Verify termination of benefit plan of enrolled member")]
-        [Xunit.TraitAttribute("FeatureTitle", "Health Care")]
-        [Xunit.TraitAttribute("Description", "11 Verify termination of benefit plan of enrolled member")]
+        [NUnit.Framework.TestAttribute()]
+        [NUnit.Framework.DescriptionAttribute("11) Verify termination of benefit plan of enrolled member")]
         public void _11VerifyTerminationOfBenefitPlanOfEnrolledMember()
         {
             string[] tagsOfScenario = ((string[])(null));
             System.Collections.Specialized.OrderedDictionary argumentsOfScenario = new System.Collections.Specialized.OrderedDictionary();
-            TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("11 Verify termination of benefit plan of enrolled member", null, tagsOfScenario, argumentsOfScenario, featureTags);
+            TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("11) Verify termination of benefit plan of enrolled member", null, tagsOfScenario, argumentsOfScenario, featureTags);
 #line 103
 this.ScenarioInitialize(scenarioInfo);
 #line hidden
@@ -504,22 +486,6 @@ this.ScenarioInitialize(scenarioInfo);
 #line hidden
             }
             this.ScenarioCleanup();
-        }
-        
-        [System.CodeDom.Compiler.GeneratedCodeAttribute("TechTalk.SpecFlow", "3.9.0.0")]
-        [System.Runtime.CompilerServices.CompilerGeneratedAttribute()]
-        public class FixtureData : System.IDisposable
-        {
-            
-            public FixtureData()
-            {
-                HealthCareFeature.FeatureSetup();
-            }
-            
-            void System.IDisposable.Dispose()
-            {
-                HealthCareFeature.FeatureTearDown();
-            }
         }
     }
 }

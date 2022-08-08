@@ -166,8 +166,7 @@ namespace SpecFlowLinkGroupDemo.Steps
         [Given(@"I Navigate to the member registration page")]
         public void GivenINavigateToTheMemberRegistrationPage()
         {
-
-
+            Thread.Sleep(1000);
             driver.FindElement(By.XPath("/html/body/app-root/app-main-layout/app-sidebar/div/aside/div/ul/li[3]/a/span")).Click();
         }
 

@@ -1,6 +1,6 @@
 ﻿Feature: Health Care
 	
-Scenario Outline: 1 Verify Login Functionality
+Scenario Outline: 01) Verify Login Functionality
 		Given I open the Health Care home page
 		When Enter username the '<username>' element
 		And Enter the '<password>' element
@@ -11,7 +11,7 @@ Scenario Outline: 1 Verify Login Functionality
 		| admin@gmail.com | admin123 |
 
 
-Scenario: 2 Search enrolled member and verify enrollment information
+Scenario: 02) Search enrolled member and verify enrollment information
 		Given I Login Application 
 		Given I click on Search Member Tab
 		And I Enter First Name which in enrolled for the given Account Number
@@ -21,7 +21,7 @@ Scenario: 2 Search enrolled member and verify enrollment information
 
 
 
-Scenario: 3 Search member and that is not enrolled.
+Scenario: 03) Search member and that is not enrolled.
 		Given I Login Application
 		And I Enter First Name which in not enrolled for the given Account Number
 		And I Enter Last Name which in not enrolled for the given Account Number
@@ -29,7 +29,7 @@ Scenario: 3 Search member and that is not enrolled.
 		And I Click on Search Validate button
 
 
-Scenario: 4 Enroll new member in healthcare plan
+Scenario: 04) Enroll new member in healthcare plan
 		Given I Login Application
 		Given I Navigate to the member registration page
 		When I Fill all fields in Personal Details
@@ -39,7 +39,7 @@ Scenario: 4 Enroll new member in healthcare plan
 
 
 
-Scenario: 5 Amend demographic details for the enrolled member
+Scenario: 05) Amend demographic details for the enrolled member
 	   Given I Login Application
 	   Given I click on Search Member Tab
 	   When I Enter the valid details to search a member
@@ -50,7 +50,7 @@ Scenario: 5 Amend demographic details for the enrolled member
 
 
 
-Scenario: 6 Verify Try to enroll member without SSN
+Scenario: 06) Verify Try to enroll member without SSN
 	   Given I Login Application
 		Given I Navigate to the member registration page
 		When I Fill Fields in personal details
@@ -65,7 +65,7 @@ Scenario: 6 Verify Try to enroll member without SSN
 
 
 
-Scenario: 7 Verify Try to enroll member without Last Name
+Scenario: 07) Verify Try to enroll member without Last Name
 		Given I Login Application
 		Given I Navigate to the member registration page
 		When I Fill all fields in Personal Details
@@ -78,20 +78,20 @@ Scenario: 7 Verify Try to enroll member without Last Name
 		|buttonstatus|
 		|true		 |
 
-Scenario: 8 Add benefit plan
+Scenario: 08) Add benefit plan
 		Given I Login Application
 		Given I Click on Benefit plan tab
 		When I fill in New Benefit plan details
 
 
-Scenario: 9 Amend benefit plan
+Scenario: 09) Amend benefit plan
 		Given I Login Application
 		Given I Click on Benefit plan tab
 		When I amend benefit plan
 
  
 
-Scenario: 10 Verify Change benefit plan of enrolled member
+Scenario: 10) Verify Change benefit plan of enrolled member
 	    Given I Login Application
 		Given I click on Search Member Tab
 		When I Enter the valid details to search a member
@@ -100,7 +100,7 @@ Scenario: 10 Verify Change benefit plan of enrolled member
 		And I Change the existing benefit plan
 		Then I Click and Assign Benefit Plan Button
 
-Scenario: 11 Verify termination of benefit plan of enrolled member
+Scenario: 11) Verify termination of benefit plan of enrolled member
 		Given I Login Application
 		Given I click on Search Member Tab
 		When I Enter the valid details to search a member
