@@ -6,7 +6,7 @@ using System;
 using System.Threading;
 using TechTalk.SpecFlow;
 
-namespace SpecFlowLinkGroupDemo
+namespace SpecFlowLinkGroupDemo.Steps
 {
     [Binding]
     public class LinkGroupSteps
@@ -192,7 +192,7 @@ namespace SpecFlowLinkGroupDemo
             driver.FindElement(By.XPath("//div[contains(text(),' 2 ')]")).Click();
 
             driver.FindElement(By.XPath("//input[@formcontrolname='ssn']")).Click();
-            String randomSSN = DateTime.UtcNow.Ticks.ToString().Substring(8);
+            string randomSSN = DateTime.UtcNow.Ticks.ToString().Substring(8);
             driver.FindElement(By.XPath("//input[@formcontrolname='ssn']")).SendKeys(randomSSN);
         }
 
@@ -285,7 +285,7 @@ namespace SpecFlowLinkGroupDemo
             driver.FindElement(By.XPath("//input[@formcontrolname='companyName']")).SendKeys("Company-1");
 
             driver.FindElement(By.XPath("//input[@formcontrolname='planName']")).SendKeys("Plan-1");
-
+            Thread.Sleep(1000);
             driver.FindElement(By.XPath("//mat-select[@formcontrolname='insuranceType']")).Click();
             driver.FindElement(By.XPath("//span[contains(text(),'Medical')]")).Click();
 
@@ -370,7 +370,7 @@ namespace SpecFlowLinkGroupDemo
         public void ThenVerifyRegisterButtonNotVisible(string expectedButtonDisabled)
         {
             //driver.FindElements(By.XPath("//body/app-root[1]/app-main-layout[1]/div[1]/app-registermember[1]/section[1]/div[1]/div[2]/div[1]/div[1]/div[1]/form[1]/div[4]/div[3]/div[3]/button[1]/span[1]"));
-            String buttonDisabledStatus = driver.FindElement(By.XPath("//button[@type='submit']")).GetAttribute("disabled");
+            string buttonDisabledStatus = driver.FindElement(By.XPath("//button[@type='submit']")).GetAttribute("disabled");
             Assert.AreEqual(expectedButtonDisabled, buttonDisabledStatus);
             // driver.Quit();
         }

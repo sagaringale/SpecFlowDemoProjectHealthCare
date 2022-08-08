@@ -2,6 +2,7 @@
 using AventStack.ExtentReports.Gherkin.Model;
 using AventStack.ExtentReports.Reporter;
 using System;
+using System.Diagnostics;
 using TechTalk.SpecFlow;
 
 namespace SpecFlowLinkGroupDemo.Steps
@@ -89,6 +90,10 @@ namespace SpecFlowLinkGroupDemo.Steps
         {
             //LinkGroupSteps.driver.Close();
             LinkGroupSteps.driver.Dispose();
+            foreach (var process in Process.GetProcessesByName("geckodriver"))
+            {
+                process.Kill();
+            }
             //kill the browser
             //Flush report once test completes
             extent.Flush();
